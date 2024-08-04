@@ -1,27 +1,53 @@
 # BootstrapApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+Este proyecto Angular utiliza Bootstrap para proporcionar una interfaz de usuario responsiva y Angular Animations para mejorar la interacción del usuario.
 
-## Development server
+## Instalación de Bootstrap
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. **Instalar Bootstrap**: Usa npm para instalar Bootstrap en tu proyecto:
 
-## Code scaffolding
+    ```bash
+    npm install bootstrap
+    ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. **Configurar Bootstrap en Angular**: Agrega Bootstrap a la configuración de estilos en el archivo `angular.json`:
 
-## Build
+    ```json
+    "styles": [
+      "src/styles.css",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css"
+    ]
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Uso de Componentes de Bootstrap
 
-## Running unit tests
+Para utilizar los componentes de Bootstrap, agrega el HTML correspondiente a tu archivo de plantilla. Aquí hay un ejemplo de una tarjeta de Bootstrap con tamaño reducido y un botón para mostrar/ocultar la tarjeta:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### `src/app/app.component.html`
 
-## Running end-to-end tests
+```html
+<div class="container mt-5">
+  <div class="text-center mb-4">
+    <!-- Botón de Mostrar/Ocultar -->
+    <button (click)="show = !show" class="btn btn-secondary">
+      {{ show ? 'Ocultar Tarjeta' : 'Mostrar Tarjeta' }}
+    </button>
+  </div>
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  <!-- Tarjeta con animación -->
+  <div *ngIf="show" @fadeInOut class="card-container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card">
+          <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Título de la Tarjeta</h5>
+            <p class="card-text">Algunos textos rápidos para construir el contenido de la tarjeta y hacer que el contenido se vea un poco más extenso.</p>
+            <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
