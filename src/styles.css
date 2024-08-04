@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilo para el contenedor de la tarjeta */
+.card-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilo para la tarjeta */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.card-img-top {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilo para el botón de mostrar/ocultar */
+.btn-secondary {
+    margin-top: 20px;
+}
